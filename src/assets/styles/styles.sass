@@ -1,0 +1,641 @@
+@import './mixin.sass'
+
+header
+  background-color: $light
+
+.header
+  @include flex($justify: space-between)
+  height: 50px
+
+  .logo
+    height: 33px
+    width: 100px
+    @include flex($justify: flex-start)
+
+  .other
+    @include flex($justify: flex-end)
+
+    .notification
+      @include flex($justify: center)
+
+      margin-right: 20px
+
+    .profile-btn
+      height: 40px
+      width: 40px
+
+      img
+        @include image()
+        border-radius: 50%
+
+.search-box
+  .profile-info
+    font-size: 14px
+    font-weight: bold
+    color: $dark
+
+    span
+      color: $pri
+
+  .search-area
+    .form-input-label
+      font-size: 14px
+      color: $dark
+
+    .group
+      margin-top: 10px
+      height: 40px
+      width: 100%
+      background-color: $light
+      border-radius: 4px
+      position: relative
+
+      .search-icon
+        position: absolute
+        left: 10px
+        top: 50%
+        transform: translateY(-50%)
+        @include flex($justify: center)
+
+      .filter-btn
+        position: absolute
+        right: 10px
+        top: 50%
+        transform: translateY(-50%)
+        @include flex($justify: center)
+
+      .custom-input
+        width: 100%
+        height: 100%
+        padding: 0 35px
+
+.banner-component
+  .banner-image
+    img
+      @include image()
+      border-radius: 10px
+      height: 150px
+
+.hotel-services
+  .service-btn-list
+    @include grid($columns: 1fr 1fr 1fr 1fr)
+    grid-gap: 5px
+
+    .item
+      height: 77px
+      width: 100%
+      background-color: $main
+      @include flex($justify: center)
+      border-radius: 4px
+
+      .icon
+        @include flex($justify: center)
+        margin-bottom: 4px
+
+      .name
+        font-size: 12px
+        font-weight: 600
+        color: $light
+
+.package
+  .package-list
+    overflow: hidden
+
+    .mySwiper
+      width: 470px !important
+      width: 100%
+
+    .item
+      position: relative
+      border-radius: 5px
+      overflow: hidden
+      height: 160px
+      width: 147px
+
+      .image
+        height: 100%
+        width: 100%
+        img
+          @include image()
+
+      .details
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        background-color: rgba(#3C3C3C, .7)
+        backdrop-filter: blur(10px)
+        padding: 6px
+        border-radius: 0 0 5px 5px
+
+        .name
+          font-size: 10px
+          color: $light
+
+        .item-footer
+          @include flex($justify: space-between)
+
+          .location
+            font-size: 8px
+            color: $light
+
+          .price
+            font-size: 10px
+            color: $success
+
+.mobile-navigation
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 1000
+  height: 100px
+  width: 100%
+  background: linear-gradient(180deg, rgba(237, 237, 237, 0) 0%, #EDEDED 22.4%)
+
+  &::after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    height: 66px
+    width: 100%
+    background-color: $main
+    z-index: 1
+
+  .nav-sec
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    bottom: 12px
+    width: 100%
+    max-width: 428px
+    margin: 0 auto
+    padding: 0 30px
+    @include flex($justify: space-between)
+    z-index: 2
+
+    button
+      position: relative
+
+      .name
+        font-size: 14px
+        font-weight: bold
+        color: $light
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        pointer-events: none
+        opacity: 0
+        @include trans()
+
+      .icon-sec
+        position: relative
+        height: 65px
+        width: 85px
+        @include flex($justify: center)
+
+        .indicator
+          @include flex($justify: center)
+          position: absolute
+          top: 0%
+          transform: translateY(-50%)
+          pointer-events: none
+          opacity: 0
+          @include trans()
+
+        .icon
+          position: absolute
+          left: 50%
+          top: 65%
+          transform: translate(-50%, -50%)
+          @include flex($justify: center)
+          @include trans()
+
+      &.actice
+        .name
+          opacity: 1
+          top: 85%
+
+        .icon-sec
+          .indicator
+            top: 12%
+            pointer-events: auto
+            opacity: 1
+
+          .icon
+            top: 10%
+
+.quick-view-page
+  background-color: $dark
+  height: 100vh
+
+.quick-view
+  .quick-view-area
+    height: 580px
+    width: 100%
+    position: relative
+
+    .image
+      @include bgImage()
+      height: 100%
+      width: 100%
+
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 49.48%, #000000 100%)
+        z-index: 1
+
+    .details
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      padding: 1rem 0
+      z-index: 2
+      color: $light
+
+      .head
+        @include flex($justify: space-between)
+        align-items: flex-start
+
+        .name
+          font-size: 24px
+          font-weight: bold
+
+      .location
+        margin: 10px 0
+        @include flex($justify: flex-start)
+
+        svg
+          height: 15px
+          width: 15px
+          margin-right: 5px
+
+      .price
+        font-size: 12px
+        font-weight: bold
+
+        span
+          color: $pri
+          font-size: 16px
+
+      .view-btn
+        color: $light
+        @include flex($justify: flex-start)
+        font-size: 16px
+        margin-top: 1rem
+
+        svg
+          height: 20px
+          width: 20px
+          margin-left: 10px
+
+.more-option
+  overflow: hidden
+  padding: 1rem 0
+  background-color: #000
+
+  .all-item
+    // @include flex($justify: center)
+    margin-bottom: 1rem
+
+  .swiper
+    // width: 700px !important
+    // @include flex($justify: center)
+
+    .swiper-wrapper
+      // @include flex($justify: center)
+
+  .swiper-slide
+    @include flex($justify: center)
+    @include trans()
+    background-color: #262626
+    border-radius: 4px
+    // width: 210px !important
+
+    &.swiper-slide-active
+      // transform: scale(1.8)
+      width: 258px !important
+      z-index: 10000
+
+      .item
+        width: 258px
+        height: 120px
+        @include grid($columns: 1fr 1fr)
+
+        .details
+          position: relative
+          pointer-events: auto
+          opacity: 1
+
+    .item
+      padding: .7rem
+      @include grid($columns: 1fr)
+      grid-gap: 10px
+      width: 210px
+      height: 100px
+      font-size: 8px
+      border-radius: 4px
+
+      .image
+        height: 100%
+        width: 100%
+        overflow: hidden
+        position: relative
+        z-index: 2
+
+        img
+          @include image()
+          border-radius: 4px
+
+      .details
+        @include flex($justify: space-between)
+        flex-direction: column
+        align-items: flex-start
+        padding: .4rem 0
+        position: absolute
+        pointer-events: none
+        opacity: 0
+        @include trans()
+        z-index: -1
+
+        .name
+          font-size: 14px
+          font-weight: bold
+          color: $light
+
+        .location
+          color: $light
+          font-size: 12px
+          @include flex($justify: flex-start)
+
+          svg
+            height: 12px
+            width: 12px
+            margin-right: 5px
+
+        .price
+          font-size: 12px
+          font-weight: 500
+          text-decoration: underline
+          color: $sec
+          @include flex($justify: flex-start)
+
+.back-btn
+  position: absolute
+  top: 10px
+  left: 20px
+  z-index: 1000
+
+.explore-all
+  padding: .5rem 1rem
+  background-color: $light
+  width: 90%
+  margin: 0 auto
+  font-size: 16px
+  font-weight: bold
+  color: #000
+  border-radius: 15px
+  @include flex($justify: space-between)
+  margin-top: 2rem
+  margin-bottom: 1rem
+
+  svg
+    height: 28px
+    width: 28px
+    path
+      fill: $dark
+
+.card-list
+  @include grid($columns: 1fr 1fr)
+
+.card
+  position: relative
+  border-radius: 5px
+  overflow: hidden
+  height: 170px
+  width: 100%
+
+  .image
+    height: 100%
+    width: 100%
+    img
+      @include image()
+
+  .details
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    background-color: rgba(#3C3C3C, .7)
+    backdrop-filter: blur(10px)
+    padding: 6px
+    border-radius: 0 0 5px 5px
+
+    .name
+      font-size: 10px
+      color: $light
+
+    .item-footer
+      @include flex($justify: space-between)
+
+      .location
+        font-size: 8px
+        color: $light
+
+      .price
+        font-size: 10px
+        color: $success
+
+.page-title
+  height: 120px
+  width: 100%
+  @include gradient()
+  border-radius: 0 0 40px 40px
+  @include flex($justify: center)
+  align-items: flex-end
+  margin-bottom: 20px
+
+  .page-name
+    text-align: center
+    color: $light
+    font-size: 36px
+    margin-bottom: 1rem
+
+.card-details-page
+  .image
+    height: 420px
+    width: 100%
+    margin-bottom: 20px
+
+    img
+      @include image()
+      border-radius: 0 0 40px 40px
+
+  .details
+    width: 100%
+    z-index: 2
+    color: $dark
+
+    .head
+      @include flex($justify: space-between)
+      align-items: flex-start
+
+      .wishlist
+        svg
+          path
+            fill: $para
+
+      .name
+        font-size: 24px
+        font-weight: bold
+
+    .location
+      margin: 10px 0
+      @include flex($justify: flex-start)
+
+      svg
+        height: 15px
+        width: 15px
+        margin-right: 5px
+
+        path
+          fill: $dark
+          // stroke: $dark
+
+    .price
+      font-size: 12px
+      font-weight: bold
+
+      span
+        color: $pri
+        font-size: 16px
+
+    .desc
+      margin: 20px 0
+
+      h3
+        font-size: 14px
+
+      p
+        font-size: 14px
+        color: #383838
+
+.user-profile
+  @include flex($justify: flex-start)
+
+  .user-image
+    height: 80px
+    width: 80px
+    margin-right: 14px
+
+    img
+      @include image()
+      border-radius: 50%
+
+  .user-details
+    .user-name
+      font-size: 24px
+      font-weight: bold
+      color: #2e2e2e
+
+    .user-number
+      font-size: 14px
+      font-weight: bold
+      color: $para
+
+.profile-all-buttons
+  margin-top: 30px
+
+  .button-list
+    .item
+      margin-bottom: 20px
+      @include flex($justify: space-between)
+
+      &:nth-last-child(1)
+        .button
+          .icon
+            background-color: rgba(#CC0000, .08)
+
+          .name
+            color: #CC0000
+
+        .arrow-icon
+          svg
+            path
+              fill: #CC0000
+
+      .button
+        @include flex($justify: flex-start)
+
+        .icon
+          height: 28px
+          width: 28px
+          border-radius: 5px
+          background-color: rgba(#0066B3, .08)
+          @include flex($justify: center)
+          margin-right: 12px
+          box-shadow: 0 2px 6px rgba($dark, .1)
+
+        .name
+          font-size: 14px
+          font-weight: 500
+          color: $dark
+
+        .arrow-icon
+          @include flex($justify: center)
+
+.presonal-data-page
+
+  .profile-pic
+    margin: 30px 0 40px
+    @include flex($justify: center)
+
+    .image
+      position: relative
+
+      img
+        height: 113px
+        width: 113px
+        border-radius: 20px
+        object-fit: cover
+
+      .image-edit
+        position: absolute
+        top: 100%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: 2
+
+  .profile-info-edit
+    .input-group
+      margin-bottom: 1rem
+
+      label
+        font-size: 14px
+        font-weight: bold
+        margin-left: 7px
+
+      input
+        height: 42px
+        background-color: rgba(#DAE2E8, .55)
+        border: 1px solid #C9C9C9
+        font-size: 14px
+        color: #383838
+        width: 100%
+        border-radius: 8px
+        margin-top: 4px
+        padding: 10px 15px
+
+    .submit
+      button
+        padding: .5rem 1rem
+        background-color: $main
+        color: $light
+        border-radius: 8px
